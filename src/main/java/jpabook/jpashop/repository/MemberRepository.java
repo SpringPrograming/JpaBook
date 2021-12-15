@@ -4,19 +4,21 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-  @PersistenceContext
-  private EntityManager em;
+  //  Spring data jpa 에서 Autowired 로도 @PersistenceContext 주입이 가능하게 지원해줘서 가능한일
+  private final EntityManager em;
 
   public void save(Member member) {
     em.persist(member);
   }
 
-  public Member find(Long id) {
+  public Member findOne(Long id) {
     return em.find(Member.class, id);
   }
 
