@@ -5,6 +5,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -23,7 +24,7 @@ public class Delivery {
 
   // 참조 당하는 곳이 mappedBy ( 조인 당하는 컬럼 )
   // fk 키를 가지고 있는곳이 Join column
-  @OneToOne(mappedBy = "delivery")
+  @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
   private Order order;
 
   @Embedded
