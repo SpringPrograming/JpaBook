@@ -1,0 +1,20 @@
+#spring:
+#  datasource:
+#    # 테스트 환경에서 격리된 데이터 베이스 를 구축하기 위해 in memory db 로 띄움
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        #        show_sql: true
+#        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
